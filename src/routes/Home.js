@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
+
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -16,13 +17,11 @@ function Home() {
     getMovies();
   }, []);
   return (
-    <section className="container">
+    <div>
       {loading ? (
-        <div className="loader">
-          <span>Loading...</span>
-        </div>
+        <h1>Loading...</h1>
       ) : (
-        <div className="movies">
+        <div>
           {movies.map((movie) => (
             <Movie
               key={movie.id}
@@ -31,13 +30,11 @@ function Home() {
               title={movie.title}
               summary={movie.summary}
               genres={movie.genres}
-              year={movie.year}
             />
           ))}
         </div>
       )}
-    </section>
+    </div>
   );
 }
-
 export default Home;

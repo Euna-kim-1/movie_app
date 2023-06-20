@@ -1,22 +1,43 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
-import Navigation from "./components/Navigation";
-import "../src/App.css";
+
+
 function App() {
   return (
-    <BrowserRouter>
-      <Navigation />
-      <Routes>
-        <Route path="/movie_app" exact={true} element={<Home />} />
-        <Route
-          path="/movie_app/movie-detail/:id"
-          element={<Detail />}
-        />
-      </Routes>
-    </BrowserRouter>
+  <BrowserRouter>
+  <Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/movie/:id" element={<Detail />} />
+  </Routes>
+  </BrowserRouter>
   );
-}
+  }
 
 export default App;
+
+
+
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import Detail from "./routes/Detail";
+// import Home from "./routes/Home";
+// function App() {
+//   return (
+//     <Router>
+//       <Switch>
+//         <Route path="/hello">
+//           <h1>Hello</h1>
+//         </Route>
+//         <Route path="/movie">
+//           <Detail />
+//         </Route>
+//         <Route path="/">
+//           <Home />
+//         </Route>
+//       </Switch>
+//     </Router>
+//   );
+// }
+
+// export default App;
